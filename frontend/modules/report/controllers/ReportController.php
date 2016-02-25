@@ -147,17 +147,31 @@ class ReportController extends Controller {
         or en.accident_fluid_type_id='' OR en.accident_fluid_type_id IS NULL
         or en.er_emergency_type='' OR en.er_emergency_type IS NULL )
         ORDER BY e.enter_er_time";
+        $sql_chart5 = "SELECT COUNT(DISTINCT o.hn) AS cc_hn
+        FROM ovstdiag o
+        WHERE  o.vstdate  BETWEEN '2015-10-01' AND DATE(NOW())
+        AND (o.diagtype='' OR o.diagtype IS NULL OR o.diagtype NOT IN('1','2','3','4','5','6','7'))";
+        $sql_chart6 = "SELECT COUNT(DISTINCT person_id)AS cc_pid FROM person WHERE house_regist_type_id IN ('1','3')
+        AND nationality<>'99' AND death='N'";
+        $sql_chart7 = "SELECT  COUNT(DISTINCT person_id)AS cc_pid FROM person WHERE house_regist_type_id IN ('1','3') AND person_discharge_id<>'9'AND death='N'";
+
 
         $chart1 = Yii::$app->db2->createCommand($sql_chart1)->queryAll();
         $chart2 = Yii::$app->db2->createCommand($sql_chart2)->queryAll();
         $chart3 = Yii::$app->db2->createCommand($sql_chart3)->queryAll();
         $chart4 = Yii::$app->db2->createCommand($sql_chart4)->queryAll();
+        $chart5 = Yii::$app->db2->createCommand($sql_chart5)->queryAll();
+        $chart6 = Yii::$app->db2->createCommand($sql_chart6)->queryAll();
+        $chart7 = Yii::$app->db2->createCommand($sql_chart7)->queryAll();
 
         return $this->render('report3', [
             'chart1' => $chart1,
             'chart2' => $chart2,
             'chart3' => $chart3,
-            'chart4' => $chart4]);
+            'chart4' => $chart4,
+            'chart5' => $chart5,
+            'chart6' => $chart6,
+            'chart7' => $chart7]);
     }
 
     public function actionRep4() {

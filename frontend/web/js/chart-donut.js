@@ -20,10 +20,10 @@ var gaugeOptions = {
     },
     // the value axis
     yAxis: {
-        stops: [                     
+        stops: [
             [0.6, 'green'],
             [0.8, 'yellow'],
-            [0.9, 'red'], 
+            [0.9, 'red'],
         ],
         lineWidth: 0,
         minorTickInterval: null,

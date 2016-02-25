@@ -8,7 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
-    'name'=>'Yii2 WebApplication Basic For You', // Change name "My Yii Application"  (แก้ไข title มีผลกับทุก page) 
+    'name'=>'Yii2 WebApplication Basic For You', // Change name "My Yii Application"  (แก้ไข title มีผลกับทุก page)
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
@@ -64,6 +64,18 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'urlManager' => [
+         'class' => 'yii\web\urlManager',
+         'enablePrettyUrl' => true,
+         'showScriptName' => false,
+         'rules' => [
+                    '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                    '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                    '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+                    ['class' => 'yii\rest\UrlRule', 'controller' => 'location', 'except' => ['delete','GET', 'HEAD','POST','OPTIONS'], 'pluralize'=>false],
+                    '<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
+          ],
+       ],
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -74,14 +86,13 @@ return [
         */
     ],
     // หลังจาก config เรียบร้อยแล้วให้ปิด access site,admin
-    //'as access' => [
-          //  'class' => 'mdm\admin\components\AccessControl',
-          //  'allowActions' => [
-          //  'site/*',
+    'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            'site/*',
             //'admin/*',
-        //    'some-controller/some-action',
-
-          //  ]
-  // ],
+            'some-controller/some-action',
+        ]
+    ],
     'params' => $params,
 ];
