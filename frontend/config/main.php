@@ -76,14 +76,6 @@ return [
                     '<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
           ],
        ],
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
     ],
     // หลังจาก config เรียบร้อยแล้วให้ปิด access site,admin
     'as access' => [
