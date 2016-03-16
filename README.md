@@ -1,12 +1,12 @@
 
-                Yii2 WebApplication Basic For You
+Yii2 WebApplication Basic For You
 การพัฒนาเว็บด้วย yii framwork [Yii2] พบกัน วันที่ 26-27 มีนาคม 2559 ณ สสจ.พังงา
 ----------------------------------------------------------------------------
 การติดตั้ง 
-1. download
-2. แตกไฟล์
-3. คัดลอกไปยัง webroot
-4. นำเข้าฐานข้อมูล ชื่อ yii2-training
-5. ตั้งค่าการเชื่อต่อ DB ไปที่ common > config > main-local.php
+    1. download
+    2. แตกไฟล์
+    3. คัดลอกไปยัง webroot
+    4. นำเข้าฐานข้อมูล ชื่อ yii2-training
+    5. ตั้งค่าการเชื่อต่อ DB ไปที่ common > config > main-local.php
 
 หมายเหตุ ระบบรายงานใช้ได้กับฐานข้อูล hosxp
