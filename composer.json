@@ -27,7 +27,10 @@
         "kartik-v/yii2-widgets": "*",
         "kartik-v/yii2-grid": "*",
         "kartik-v/yii2-mpdf": "*",
-        "kartik-v/yii2-export": "*"
+        "kartik-v/yii2-export": "*",
+        "2amigos/yii2-ckeditor-widget": "*",
+        "bupy7/yii2-bbcode": "1.*",
+        "franciscomaya/yii2-sceditor": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

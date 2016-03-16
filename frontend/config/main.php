@@ -8,7 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
-    'name'=>'Yii2 WebApplication Basic For You', // Change name "My Yii Application"  (แก้ไข title มีผลกับทุก page)
+    'name'=>'Yii2 WebApplication Basic For You 2016', // Change name "My Yii Application"  (แก้ไข title มีผลกับทุก page)
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
@@ -40,9 +40,12 @@ return [
             ]
         ],
       ],
-      'report' => [
-                'class' => 'frontend\modules\report\Module',
-      ],
+        'reportonline' => [
+            'class' => 'frontend\modules\reportonline\Module',
+        ],
+        'personals' => [
+            'class' => 'frontend\modules\personals\Module',
+        ],
   ],
 
     'components' => [
@@ -82,7 +85,7 @@ return [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
             'site/*',
-            //'admin/*',
+            'user/*',
             'some-controller/some-action',
         ]
     ],

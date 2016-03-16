@@ -36,16 +36,16 @@ AppAsset::register($this);
         ],
     ]);
     if (Yii::$app->user->isGuest) {
-           $submenuItems[] = ['label' => 'Login', 'url' => ['/user/security/login']];
+           $submenuItems[] = ['label' => 'เข้าสู่ระบบ', 'url' => ['/user/security/login']];
 
-           $submenuItems[] = ['label' => 'Register', 'url' => ['/user/registration/register']];
+           $submenuItems[] = ['label' => 'ลงทะเบียน', 'url' => ['/user/registration/register']];
        } else {
 
            $submenuItems[] = [
-               'label' => 'Profile', 'url' => ['/user/settings/profile'],
+               'label' => 'ข้อมูลส่วนตัว', 'url' => ['/user/settings/profile'],
            ];
            $submenuItems[] = [
-               'label' => 'Logout', 'url' => ['/user/security/logout'],'linkOptions' => ['data-method' => 'post']
+               'label' => 'ออกจากระบบ', 'url' => ['/user/security/logout'],'linkOptions' => ['data-method' => 'post']
            ];
        }
 
@@ -54,16 +54,21 @@ AppAsset::register($this);
            $username = '(' . Html::encode(Yii::$app->user->identity->username) . ')';
        }
        $menuItems = [
-         ['label' => 'Home', 'url' => ['/site/index']],
-         ['label' => 'Workshop', 'url' => ['index'],'items'=>[
-             ['label' => 'ระบบบุคลากร', 'url' => ['employee/index']],
+         ['label' => 'HOME', 'url' => ['/site/index']],
+         ['label' => 'ระบบของฉัน', 'url' => ['index'],'items'=>[
+             ['label' => 'ระบบบุคลากร', 'url' => ['/personals/default']],
+             ['label' => 'ระบบขอรายงานออนไลน์', 'url' => ['/reportonline/default']],
              ['label' => 'ระบบบันทึกตัวชี้วัด', 'url' => ['kpi/index']],
+             ['label' => 'ประกาศข่าว', 'url' => ['news/index']],
+             ['label' => 'เว็บบอร์ด', 'url' => ['webboard/index']],
          ]],
-         ['label' => 'Report', 'url' => ['report/default']],
-         ['label' => 'About', 'url' => ['/site/about']],
-         ['label' => 'Contact', 'url' => ['/site/contact']],
-         ['label' => 'Right', 'url' => ['/admin']],
-         ['label' => 'User' . " ".$username,
+         ['label' => 'รายงาน', 'url' => ['report/index']],
+         
+         //['label' => 'About', 'url' => ['/site/about']],
+         //['label' => 'Contact', 'url' => ['/site/contact']],
+         ['label' => 'จัดการผู้ใช้', 'url' => ['/user/admin/index']],
+         ['label' => 'จัดการสิทธิใช้งาน', 'url' => ['/admin']],
+         ['label' => 'ผู้ใช้งาน' . " ".$username,
           'items' => $submenuItems
          ],
        ];
@@ -86,7 +91,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">ไอทีพังงา &copy; Yii2 WebApplication Basic For You <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>

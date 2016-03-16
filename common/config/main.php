@@ -9,6 +9,10 @@ return [
           // 'class' =>  'yii\rbac\PhpManager',
           'class' =>  'yii\rbac\DbManager',
         ],
-
+    ],
+    'modules' => [
+        'gridview' => [
+            'class' => '\kartik\grid\Module'
+        ]
     ],
 ];
